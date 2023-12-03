@@ -13,7 +13,8 @@ interface Solution {
 enum class Day(private val solution: Solution) {
 
     One(Trebuchet),
-    Two(CubeConundrum);
+    Two(CubeConundrum),
+    Three(GearRatios);
 
     fun solve() {
         FileSystem.RESOURCES.source("$name.txt".toPath()).buffer().use {
