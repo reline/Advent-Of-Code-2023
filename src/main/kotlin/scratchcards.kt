@@ -6,11 +6,11 @@ object Scratchcards : Solution {
 
     fun partone(input: String): Int {
         return input.lines().sumOf {
-            points(Card(it))
+            points(ScratchCard(it))
         }
     }
 
-    private fun points(card: Card): Int {
+    private fun points(card: ScratchCard): Int {
         return card.scratchedNumbers.fold(0) { acc, number ->
             if (card.winningNumbers.contains(number)) {
                 if (acc == 0) {
@@ -28,7 +28,7 @@ object Scratchcards : Solution {
         val cards = hashMapOf<Int, Int>()
         input.lines().forEachIndexed { cardIndex, line ->
             val cardNumber = cardIndex + 1
-            val card = Card(line)
+            val card = ScratchCard(line)
             val cardCount = cards.getOrPut(cardNumber) { 1 }
             val wins = card.scratchedNumbers.count { card.winningNumbers.contains(it) }
             for (i in cardNumber + 1 .. cardNumber + wins) {
@@ -39,7 +39,7 @@ object Scratchcards : Solution {
     }
 }
 
-class Card(s: String) {
+class ScratchCard(s: String) {
     val winningNumbers: Set<Int>
     val scratchedNumbers: List<Int>
 
