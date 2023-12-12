@@ -19,7 +19,8 @@ enum class Day(private val solution: Solution) {
     Five(Fertilizer),
     Six(WaitForIt),
     Seven(CamelCards),
-    Eight(HauntedWasteland);
+    Eight(HauntedWasteland),
+    Nine(MirageMaintenance);
 
     fun solve() {
         FileSystem.RESOURCES.source("$name.txt".toPath()).buffer().use {
